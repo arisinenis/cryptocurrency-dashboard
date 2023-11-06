@@ -7,8 +7,10 @@ const Header = () => {
   return (
     <>
       <Navbar className="my-2 p-4 footer" color="dark" dark>
-        <NavbarBrand href="/" style={{ fontSize: "2rem" }}>
-          <b>CryptoTracker</b>
+        <NavbarBrand style={{ fontSize: "2rem" }}>
+          <b>
+            <Link style={{textDecoration: "none", color: "gold", fontWeight: "bolder"}} to="/">CryptoTracker</Link>
+          </b>
         </NavbarBrand>
       </Navbar>
     </>
