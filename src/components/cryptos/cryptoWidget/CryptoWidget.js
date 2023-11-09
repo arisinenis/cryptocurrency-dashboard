@@ -21,4 +21,3 @@ const CryptoWidget = (props) => {
 };
 
 export default CryptoWidget;
-//
