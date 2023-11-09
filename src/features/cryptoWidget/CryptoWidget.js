@@ -4,16 +4,17 @@ const CryptoWidget = (props) => {
   return (
     <div className="item">
       <div className="display-container">
-        <div className="name">{props.symbol}</div>
+        <div className="name">{props.crypto.symbol}</div>
       </div>
       <div className="price-container">
-        <div className="price">{props.lastPrice}</div>
+        <div className="price">{props.crypto.lastPrice}</div>
         <div
           className={`price-change ${
-            parseInt(props.priceChangePercent) < 0 ? "danger" : "success"
+            parseInt(props.crypto.priceChangePercent) < 0 ? "danger" : "success"
           }`}
         >
-          {props.priceChangePercent && `${props.priceChangePercent}%`}
+          {props.crypto.priceChangePercent &&
+            `${props.crypto.priceChangePercent}%`}
         </div>
       </div>
     </div>

@@ -1,9 +1,10 @@
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
+import Header from "./features/header/Header";
+import Footer from "./features/footer/Footer";
 import { Route, Switch, useNavigate, Routes } from "react-router-dom";
-import About from "./components/about/About";
-import Nav from "./components/Nav/Nav";
-import "./App.css"
+import About from "./features/about/About";
+import Nav from "./features/Nav/Nav";
+import Home from "./features/Home";
+import "./App.css";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <Nav />
       <Routes>
+        <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
       </Routes>
 
