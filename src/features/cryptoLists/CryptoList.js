@@ -1,14 +1,19 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CryptoWidget from "../cryptoWidget/CryptoWidget";
-import { getCryptoPairs } from "./cryptoListSlice";
+// import { getCryptoPairs } from "./cryptoListSlice";
+import { fetchAllCryptos } from "../cryptoLists/cryptoListSlice";
 
 const CryptoList = () => {
   const dispatch = useDispatch();
-  let pairs = [];
+  const pairs = useSelector((state) => state.allCryptos.allCryptoList);
 
   useEffect(() => {
-    pairs = dispatch(getCryptoPairs());
+    // setTimeout(() => {
+    //   dispatch(fetchAllCryptos());
+    // }, 1000);
+
+    dispatch(fetchAllCryptos());
   });
 
   return (

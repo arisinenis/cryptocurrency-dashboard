@@ -1,25 +1,24 @@
-*{
-box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    color: white;
-  }
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
 
-ul{
+ul {
   background-color: gold;
   padding: 0.75rem;
 }
 
-li{
+li {
   list-style-type: none;
 }
-
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;600&display=swap");
 
@@ -28,6 +27,7 @@ li{
   --light: #fafafa;
   --success: #03a66d;
   --danger: #cf304a;
+  --gold: gold;
 }
 
 * {
@@ -36,16 +36,16 @@ li{
 
 .name,
 .loading-text {
-  color: var(--light);
+  color: black;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: bolder;
 }
 
 .fullname {
-  color: #b6b6b6;
+  color: black;
   font-size: 14px;
   margin-top: 3px;
-  font-weight: 500;
+  font-weight: bolder;
 }
 
 .item {
@@ -53,6 +53,10 @@ li{
   align-items: center;
   padding: 12px 0px;
   border-bottom: 1px solid #949191;
+}
+
+.item:hover {
+  background-color: rgb(200, 191, 191);
 }
 
 .item:first-child {
@@ -86,8 +90,9 @@ li{
 
 .price {
   font-weight: 500;
-  color: var(--light);
+  color: black;
   font-size: 16px;
+  font-weight: bolder;
 }
 
 .price-change {
@@ -101,3 +106,29 @@ li{
 .price-change.success {
   color: var(--success);
 }
+
+.mainPage {
+  margin-left: 25%;
+  width: 50%;
+}
+
+/* .blink-text {
+  animation: blinkingText 0.5s infinite;
+}
+@keyframes blinkingText {
+  0% {
+    color: var(--gold);
+  }
+  25% {
+    color: var(--gold);
+  }
+  50% {
+    color: var(--gold);
+  }
+  75% {
+    color: var(--gold);
+  }
+  100% {
+    color: white;
+  }
+} */
