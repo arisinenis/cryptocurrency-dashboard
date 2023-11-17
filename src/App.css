@@ -112,6 +112,10 @@ li {
   width: 50%;
 }
 
+.btn-container {
+  margin-left: 33%;
+}
+
 /* .blink-text {
   animation: blinkingText 0.5s infinite;
 }

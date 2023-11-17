@@ -4,6 +4,8 @@ import { useEffect } from "react";
 
 const initialState = {
   allCryptoList: [],
+  cryptoPair: {},
+  cryptoParameter: "",
   loading: false,
 };
 
@@ -17,10 +19,26 @@ export const fetchAllCryptos = createAsyncThunk(
   }
 );
 
+// Fetch related crypto datas from binance api
+export const getRelatedCryptoInfos = createAsyncThunk(
+  "cryptoWidgetRtk/getRelatedCryptoInfos",
+  async (thunkAPI) => {
+    const result = await axios.get(
+      "https://api.binance.com/api/v3/ticker/24hr?symbol=" +
+        initialState.cryptoParameter
+    );
+    return result.data;
+  }
+);
+
 export const cryptoListSlice = createSlice({
   name: "allCryptos",
   initialState,
-  reducers: {},
+  reducers: {
+    changeCryptoParameter: (state, payload) => {
+      state.cryptoParameter = actiion.payload;
+    },
+  },
   extraReducers: {
     [fetchAllCryptos.pending]: (state) => {
       state.loading = true;
@@ -32,9 +50,19 @@ export const cryptoListSlice = createSlice({
     [fetchAllCryptos.rejected]: (state) => {
       state.loading = false;
     },
+    [getRelatedCryptoInfos.pending]: (state) => {
+      state.loading = true;
+    },
+    [getRelatedCryptoInfos.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+      state.cryptoPair = payload;
+    },
+    [getRelatedCryptoInfos.rejected]: (state) => {
+      state.loading = false;
+    },
   },
 });
 
-// export const { getCryptoPairs } = cryptoListSlice.actions;
+export const { changeCryptoParameter } = cryptoListSlice.actions;
 
 export default cryptoListSlice.reducer;
