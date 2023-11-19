@@ -1,5 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { changeCryptoParameter } from "../cryptoLists/cryptoListSlice";
 
 const CryptoWidget = (props) => {
   const dispatch = useDispatch();
@@ -10,7 +12,9 @@ const CryptoWidget = (props) => {
         <div className="name">{props.crypto.symbol}</div>
       </div>
       <div className="display-container btn-container">
-        <button>See Details</button>
+        <button onClick={dispatch(changeCryptoParameter())}>
+          <Link to="cryptoDetail">See Details</Link>
+        </button>
       </div>
       <div className="price-container">
         <div className="price">{props.crypto.lastPrice}</div>

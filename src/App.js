@@ -4,6 +4,7 @@ import { Route, Switch, useNavigate, Routes } from "react-router-dom";
 import About from "./features/about/About";
 import Nav from "./features/Nav/Nav";
 import Home from "./features/Home";
+import CryptoDetail from "./features/cryptoDetail/CryptoDetail";
 import "./App.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
+        <Route exact path="/cryptoDetail" element={<CryptoDetail />} />
       </Routes>
 
       {/* <Footer /> */}

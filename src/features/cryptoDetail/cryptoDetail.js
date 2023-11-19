@@ -1,9 +1,18 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRelatedCryptoInfos } from "../cryptoLists/cryptoListSlice";
-import { Card, CardHeader, CardTitle, CardText, CardBody } from "reactstrap";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardText,
+  CardBody,
+  Button,
+} from "reactstrap";
 
-const cryptoDetail = () => {
+const CryptoDetail = () => {
+  const pair = useSelector((state) => state.allCryptos.cryptoPair);
+
   return (
     <Card
       className="my-2"
@@ -11,16 +20,19 @@ const cryptoDetail = () => {
         width: "18rem",
       }}
     >
-      <CardHeader>Header</CardHeader>
+      <CardHeader>{pair.symbol}</CardHeader>
       <CardBody>
-        <CardTitle tag="h5">Special Title Treatment</CardTitle>
-        <CardText>
-          With supporting text below as a natural lead-in to additional content.
+        <CardTitle tag="h5">{pair.lastPrice}</CardTitle>
+        <CardText
+          className={`price-change ${
+            parseInt(pair.priceChangePercent) < 0 ? "danger" : "success"
+          }`}
+        >
+          {pair.priceChangePercent && `${pair.priceChangePercent}%`}
         </CardText>
-        <Button>Go somewhere</Button>
       </CardBody>
     </Card>
   );
 };
 
-export default cryptoDetail;
+export default CryptoDetail;
