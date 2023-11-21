@@ -12,9 +12,12 @@ const CryptoWidget = (props) => {
         <div className="name">{props.crypto.symbol}</div>
       </div>
       <div className="display-container btn-container">
-        <button onClick={dispatch(changeCryptoParameter())}>
-          <Link to="cryptoDetail">See Details</Link>
-        </button>
+        <Link
+          onClick={() => dispatch(changeCryptoParameter(props.crypto.symbol))}
+          to="cryptoDetail"
+        >
+          See Details
+        </Link>
       </div>
       <div className="price-container">
         <div className="price">{props.crypto.lastPrice}</div>

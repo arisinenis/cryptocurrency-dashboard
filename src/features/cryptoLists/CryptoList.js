@@ -19,7 +19,7 @@ const CryptoList = () => {
   return (
     <div>
       {pairs.map((pair) => (
-        <CryptoWidget crypto={pair} />
+        <CryptoWidget key={pair.symbol} crypto={pair} />
       ))}
     </div>
   );

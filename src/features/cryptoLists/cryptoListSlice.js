@@ -26,7 +26,6 @@ export const getRelatedCryptoInfos = createAsyncThunk(
     const result = await axios.get(
       "https://api.binance.com/api/v3/ticker/24hr?symbol=" + pairData
     );
-
     return result.data;
   }
 );
@@ -35,9 +34,8 @@ export const cryptoListSlice = createSlice({
   name: "allCryptos",
   initialState,
   reducers: {
-    changeCryptoParameter: (state, payload) => {
-      state.cryptoParameter = payload;
-      state.cryptoPair = getRelatedCryptoInfos(state.cryptoParameter);
+    changeCryptoParameter: (state, action) => {
+      state.cryptoParameter = action.payload;
     },
   },
   extraReducers: {

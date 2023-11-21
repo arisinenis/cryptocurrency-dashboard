@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRelatedCryptoInfos } from "../cryptoLists/cryptoListSlice";
 import {
@@ -11,6 +11,15 @@ import {
 } from "reactstrap";
 
 const CryptoDetail = () => {
+  const dispatch = useDispatch();
+  const cryptoParameter = useSelector(
+    (state) => state.allCryptos.cryptoParameter
+  );
+
+  useEffect(() => {
+    dispatch(getRelatedCryptoInfos(cryptoParameter));
+  });
+
   const pair = useSelector((state) => state.allCryptos.cryptoPair);
 
   return (
